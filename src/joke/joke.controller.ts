@@ -12,6 +12,11 @@ export class JokeController {
     return this.jokeService.createJoke(joke, type);
   }
 
+  @Get('joke')
+  getJoke(@Query('type') type: string) {
+    return this.jokeService.getJokeByType(type);
+  }
+
   @Get('types')
   getJokeTypes() {
     return this.jokeService.getJokeTypes();
