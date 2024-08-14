@@ -29,4 +29,9 @@ export class JokeService {
       }
       return jokes[Math.floor(Math.random() * jokes.length)];
   }
+
+  async deleteJokeById(id: string): Promise<boolean> {
+    const result = await this.jokeModel.deleteOne({ _id: id }).exec();
+    return result.deletedCount > 0;
+  }
 }
